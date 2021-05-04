@@ -1,4 +1,4 @@
-package bai2_vong_lap_trong_java.practice;
+package bai2_loop_array.practice;
 
 import java.util.Scanner;
 

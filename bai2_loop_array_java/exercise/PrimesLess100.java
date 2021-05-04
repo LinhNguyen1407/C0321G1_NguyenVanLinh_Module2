@@ -1,4 +1,4 @@
-package bai2_vong_lap_trong_java.exercise;
+package bai2_loop_array.exercise;
 
 public class PrimesLess100 {
     public static void main(String[] args) {
