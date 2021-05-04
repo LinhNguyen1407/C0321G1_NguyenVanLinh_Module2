@@ -1,7 +1,7 @@
-package bai2_loop_array.exercise;
+package bai3_array_method.exercise;
 import java.util.Scanner;
 
-public class MaxElementInArrryInput {
+public class SumColumnInput {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.print("Enter rows of array: ");
@@ -9,33 +9,31 @@ public class MaxElementInArrryInput {
         System.out.print("Enter columns of array: ");
         int columns = input.nextInt();
 
-        int[][] arr = new int[rows][columns];
+        double[][] arr = new double[rows][columns];
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
                 System.out.print("Enter element " + (i + 1) + "," + (j + 1) + " : ");
-                arr[i][j] = input.nextInt();
+                arr[i][j] = input.nextDouble();
             }
         }
         System.out.println("Array list: ");
-        for (int[] row : arr) {
-            for (int column : row) {
+        for (double[] row : arr) {
+            for (double column : row) {
                 System.out.print(column + "\t");
             }
             System.out.println();
         }
 
-        int max = arr[0][0];
-        int x = 0;
-        int y = 0;
-        for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (max < arr[i][j]) {
-                    max = arr[i][j];
-                    x = i;
-                    y = j;
-                }
-            }
+        int column;
+        do {
+            System.out.print("Enter column: ");
+            column = input.nextInt();
+        } while (column < 0 || column >= arr[0].length);
+
+        double sum = 0;
+        for (double[] value : arr) {
+            sum += value[column];
         }
-        System.out.println("Max element in array: " + max + " at position " + x + " , " + y);
+        System.out.print("Sum the elements of column " + column + " is " + sum);
     }
 }

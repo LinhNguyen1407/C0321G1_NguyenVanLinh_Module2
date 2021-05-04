@@ -1,4 +1,4 @@
-package bai2_loop_array.practice;
+package bai3_array_method.practice;
 
 public class FindMinElement {
     public static void main(String[] args) {

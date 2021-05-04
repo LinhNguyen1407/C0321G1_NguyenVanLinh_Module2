@@ -1,4 +1,4 @@
-package bai2_loop_array.exercise;
+package bai3_array_method.exercise;
 import java.util.Scanner;
 
 public class AddElementInArray {

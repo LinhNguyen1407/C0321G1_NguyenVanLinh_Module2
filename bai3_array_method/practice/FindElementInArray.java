@@ -1,4 +1,4 @@
-package bai2_loop_array.practice;
+package bai3_array_method.practice;
 import java.util.Scanner;
 
 public class FindElementInArray {

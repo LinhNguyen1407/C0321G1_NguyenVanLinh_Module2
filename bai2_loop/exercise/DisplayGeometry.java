@@ -1,4 +1,4 @@
-package bai2_loop_array.exercise;
+package bai2_loop.exercise;
 
 import java.util.Scanner;
 

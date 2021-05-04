@@ -1,4 +1,4 @@
-package bai2_loop_array.exercise;
+package bai2_loop.exercise;
 
 public class PrimesLess100 {
     public static void main(String[] args) {

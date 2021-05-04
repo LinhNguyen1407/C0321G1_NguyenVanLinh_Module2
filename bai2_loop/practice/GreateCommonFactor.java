@@ -1,4 +1,4 @@
-package bai2_loop_array.practice;
+package bai2_loop.practice;
 
 import java.util.Scanner;
 
