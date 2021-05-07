@@ -21,6 +21,17 @@ public class QuadraticEquation {
         return this.c;
     }
 
+    void solveEquation () {
+        double delta = this.getDiscriminant();
+        if (delta > 0) {
+            System.out.print("Equation has 2 roots: " + this.getRoot1() + " and " + this.getRoot2());
+        } else if (delta == 0) {
+            System.out.print("Equation has 1 root: " + this.getRoot1());
+        } else {
+            System.out.print("Equation has no roots");
+        }
+    }
+
     double getDiscriminant() {
         double delta = Math.pow(this.b, 2) - 4 * this.a * this.c;
         return delta;

@@ -13,13 +13,6 @@ public class Main {
         double c = input.nextDouble();
 
         QuadraticEquation quadraticEquation = new QuadraticEquation(a, b, c);
-        double delta = quadraticEquation.getDiscriminant();
-        if (delta > 0) {
-            System.out.print("Equation has 2 roots: " + quadraticEquation.getRoot1() + " and " + quadraticEquation.getRoot2());
-        } else if (delta == 0) {
-            System.out.print("Equation has 1 root: " + quadraticEquation.getRoot1());
-        } else {
-            System.out.print("Equation has no roots");
-        }
+        quadraticEquation.solveEquation();
     }
 }
