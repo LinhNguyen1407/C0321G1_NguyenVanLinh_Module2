@@ -50,9 +50,10 @@ public class MoveablePoint extends Point{
         return "Moveable có tốc độ điểm x, y là " + Arrays.toString(getSpeed()) + " là lớp con của lớp " + super.toString();
     }
 
-    void move() {
+    MoveablePoint move() {
         float temp1 = super.getX() + getXSpeed();
         float temp2 = super.getY() + getYSpeed();
         super.setXY(temp1, temp2);
+        return this;
     }
 }
