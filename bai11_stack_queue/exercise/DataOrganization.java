@@ -45,11 +45,13 @@ public class DataOrganization {
 
         Queue<Staff> maleQueue = new LinkedList<>();
         Queue<Staff> femaleQueue = new LinkedList<>();
-        Staff staff1 = new Staff("An", "Nam", "20000101");
-        Staff staff2 = new Staff("Binh", "Nu", "19900101");
-        Staff staff3 = new Staff("Ha", "Nu", "19880401");
-        Staff staff4 = new Staff("Hai", "Nam", "19880301");
-        Staff staff5 = new Staff("Duc", "Nam", "19880201");
+        Queue<Staff> resultQueue = new LinkedList<>();
+
+        Staff staff1 = new Staff("An", "Nam", "2000/01/01");
+        Staff staff2 = new Staff("Binh", "Nu", "1990/01/01");
+        Staff staff3 = new Staff("Ha", "Nu", "1988/04/01");
+        Staff staff4 = new Staff("Hai", "Nam", "1988/03/01");
+        Staff staff5 = new Staff("Duc", "Nam", "1988/02/01");
 
         Staff[] staffList = {staff1, staff2, staff3, staff4, staff5};
         for (Staff element : staffList) {
@@ -61,22 +63,15 @@ public class DataOrganization {
             }
         }
 
-        Staff[] maleArray = new Staff[maleQueue.size()];
-        Staff[] femaleArray = new Staff[femaleQueue.size()];
-        int numMales = maleQueue.size();
-        int numFemales = femaleQueue.size();
-        for (int i = 0; i < numMales; i++) {
-            maleArray[i] = maleQueue.remove();
+        while (!maleQueue.isEmpty()) {
+            resultQueue.add(maleQueue.remove());
         }
-        for (int j = 0; j < numFemales; j++) {
-            femaleArray[j] = femaleQueue.remove();
+        while (!femaleQueue.isEmpty()) {
+            resultQueue.add(femaleQueue.remove());
         }
 
         System.out.println("Display staff list by gender");
-        for (Staff person : maleArray) {
-            System.out.println(person.getName() + "\t" + person.getGender() + "\t" + person.getBirthday());
-        }
-        for (Staff person : femaleArray) {
+        for (Staff person : resultQueue) {
             System.out.println(person.getName() + "\t" + person.getGender() + "\t" + person.getBirthday());
         }
     }
