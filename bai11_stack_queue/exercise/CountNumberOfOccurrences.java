@@ -8,21 +8,21 @@ public class CountNumberOfOccurrences {
         String string = "abcd1Abcd2Dabc3";
         System.out.println("Chuỗi ban đầu: " + string);
         string = string.toLowerCase();
+        String[] array = string.split("");
 
-        HashMap<Character, Integer> myHashMap = new HashMap<>();
-        Set<Character> keys = myHashMap.keySet();
+        HashMap<String, Integer> myHashMap = new HashMap<>();
+        Set<String> keys = myHashMap.keySet();
 
-        for (int i = 0; i < string.length(); i++) {
-            Character temp = string.charAt(i);
-            if(!keys.contains(temp)) {
-                myHashMap.put(temp, 1);
+        for (String word : array) {
+            if (!keys.contains(word)) {
+                myHashMap.put(word, 1);
             } else {
-                int value = myHashMap.get(temp);
-                myHashMap.put(temp, ++value);
+                int value = myHashMap.get(word);
+                myHashMap.put(word, ++value);
             }
         }
 
-        for (Character key: keys) {
+        for (String key: keys) {
             System.out.println("Key: " + key + " : " + myHashMap.get(key));
         }
     }

@@ -18,17 +18,25 @@ public class CheckPalindromeString {
         Queue<String> queue = new LinkedList();
         string = string.toLowerCase();
         String[] array = string.split("");
-        for (String element : array) {
-            stack.push(element);
-            queue.offer(element);
+
+        for (int i = 0; i < array.length / 2; i++) {
+            stack.push(array[i]);
         }
-        int size = stack.size();
-        for (int i = 0; i < size; i++) {
-            if (!stack.isEmpty()) {
-                boolean check = stack.pop().equals(queue.remove());
-                if (!check) {
-                    return false;
-                }
+        boolean checkResidual = array.length % 2 == 0;
+        if (checkResidual) {
+            for (int j = array.length / 2; j < array.length; j++) {
+                queue.offer(array[j]);
+            }
+        } else {
+            for (int j = array.length / 2 + 1; j < array.length; j++) {
+                queue.offer(array[j]);
+            }
+        }
+
+        while (!stack.isEmpty()) {
+            boolean check = stack.pop().equals(queue.remove());
+            if (!check) {
+                return false;
             }
         }
         return true;

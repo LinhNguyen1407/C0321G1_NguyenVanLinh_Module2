@@ -42,7 +42,7 @@ public class DataOrganization {
                 this.birthday = birthday;
             }
         }
-
+        Queue<Staff> staffQueue = new LinkedList<>();
         Queue<Staff> maleQueue = new LinkedList<>();
         Queue<Staff> femaleQueue = new LinkedList<>();
         Queue<Staff> resultQueue = new LinkedList<>();
@@ -52,9 +52,13 @@ public class DataOrganization {
         Staff staff3 = new Staff("Ha", "Nu", "1988/04/01");
         Staff staff4 = new Staff("Hai", "Nam", "1988/03/01");
         Staff staff5 = new Staff("Duc", "Nam", "1988/02/01");
+        staffQueue.add(staff1);
+        staffQueue.add(staff2);
+        staffQueue.add(staff3);
+        staffQueue.add(staff4);
+        staffQueue.add(staff5);
 
-        Staff[] staffList = {staff1, staff2, staff3, staff4, staff5};
-        for (Staff element : staffList) {
+        for (Staff element : staffQueue) {
             String gender = element.getGender();
             if (gender.equals("Nam")) {
                 maleQueue.offer(element);
