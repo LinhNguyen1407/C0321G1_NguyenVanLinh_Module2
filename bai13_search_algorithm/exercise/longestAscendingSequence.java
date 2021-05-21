@@ -2,7 +2,7 @@ package bai13_search_algorithm.exercise;
 import java.util.Scanner;
 import java.util.LinkedList;
 
-public class longestAscendingSequence {
+public class LongestAscendingSequence {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Nhập chuỗi: ");
