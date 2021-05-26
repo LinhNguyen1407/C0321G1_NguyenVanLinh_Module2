@@ -27,13 +27,14 @@ public class ProductManager {
             fis.close();
             ois.close();
         }catch(Exception ex){
-            ex.printStackTrace();
+            System.err.println(ex.getMessage());
         }
         return products;
     }
 
     public static void displayProduct (String path) {
         List<Product> productsFromFile = ProductManager.readFromFile(path);
+        System.out.println("Danh sách sản phẩm:");
         for(Product product: productsFromFile) {
             System.out.println(product);
         }
@@ -60,5 +61,18 @@ public class ProductManager {
                 check = false;
             }
         }
+    }
+
+    public static void searchByCode (String path, Scanner input) {
+        System.out.println("Nhập mã sản phẩm cẩn tìm: ");
+        String code = input.nextLine();
+        List<Product> productsFromFile = ProductManager.readFromFile(path);
+        for(Product product: productsFromFile) {
+            if (product.getCode().equals(code)) {
+                System.out.println("Thông tin sản phẩm cần tìm: " + product);
+                return;
+            }
+        }
+        System.out.println("Sản phẩm không tìm thấy");
     }
 }
