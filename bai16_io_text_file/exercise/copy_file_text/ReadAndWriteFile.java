@@ -3,8 +3,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class ReadAndWriteFile {
-    public ArrayList<Integer> readFile(String filePath) {
-        ArrayList<Integer> list = new ArrayList<>();
+    public ArrayList<Character> readFile(String filePath) {
+        ArrayList<Character> list = new ArrayList<>();
         try {
             File file = new File(filePath);
 
@@ -16,7 +16,7 @@ public class ReadAndWriteFile {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             int character;
             while ((character = bufferedReader.read()) != -1) {
-                list.add(character);
+                list.add((char) character);
             }
             bufferedReader.close();
         } catch (Exception e) {
@@ -25,11 +25,11 @@ public class ReadAndWriteFile {
         return list;
     }
 
-    public int countCharacter(ArrayList<Integer> list) {
+    public int countCharacter(ArrayList<Character> list) {
         return list.size();
     }
 
-    public void writeFile(ArrayList<Integer> list) {
+    public void writeFile(ArrayList<Character> list) {
         try {
             File file = new File("D:\\CodeGym\\Intellij_IDEA_Module_02\\src\\bai16_io_text_file\\exercise\\copy_file_text\\result.txt");
             FileWriter writer = new FileWriter(file);
