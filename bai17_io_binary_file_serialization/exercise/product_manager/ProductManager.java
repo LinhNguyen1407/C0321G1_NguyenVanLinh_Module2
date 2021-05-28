@@ -1,46 +1,18 @@
 package bai17_io_binary_file_serialization.exercise.product_manager;
-
-import java.io.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ProductManager {
-    public static void writeToFile(String path, List<Product> products) {
-        try {
-            FileOutputStream fos = new FileOutputStream(path);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(products);
-            oos.close();
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static List<Product> readFromFile(String path){
-        List<Product> products = new ArrayList<>();
-        try{
-            FileInputStream fis = new FileInputStream(path);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            products = (List<Product>) ois.readObject();
-            fis.close();
-            ois.close();
-        }catch(Exception ex){
-            System.err.println(ex.getMessage());
-        }
-        return products;
-    }
-
     public static void displayProduct (String path) {
-        List<Product> productsFromFile = ProductManager.readFromFile(path);
+        List<Product> productsFromFile = ReadAndWriteFile.readFromFile(path);
         System.out.println("Danh sách sản phẩm:");
         for(Product product: productsFromFile) {
             System.out.println(product);
         }
     }
 
-    public static void addProduct (String path, List<Product> products, Scanner input) {
+    public static void addProduct (List<Product> products) {
+        Scanner input = new Scanner(System.in);
         boolean check = true;
         while (check) {
             System.out.print("Nhập mã: ");
@@ -51,8 +23,10 @@ public class ProductManager {
             String company = input.nextLine();
             System.out.print("Nhập giá: ");
             double price = Double.parseDouble(input.nextLine());
+            products.clear();
+            products.addAll(ReadAndWriteFile.readFromFile("src\\bai17_io_binary_file_serialization\\exercise\\product_manager\\products.txt"));
             products.add(new Product(code, name, company, price));
-            ProductManager.writeToFile(path, products);
+            ReadAndWriteFile.writeToFile(products);
             System.out.println("Bạn muốn có muốn tiếp tục thêm sản phẩm: \n" +
                     "1.Có\n" +
                     "0.Không");
@@ -63,10 +37,11 @@ public class ProductManager {
         }
     }
 
-    public static void searchByCode (String path, Scanner input) {
+    public static void searchByCode (String path) {
         System.out.println("Nhập mã sản phẩm cẩn tìm: ");
+        Scanner input = new Scanner(System.in);
         String code = input.nextLine();
-        List<Product> productsFromFile = ProductManager.readFromFile(path);
+        List<Product> productsFromFile = ReadAndWriteFile.readFromFile(path);
         for(Product product: productsFromFile) {
             if (product.getCode().equals(code)) {
                 System.out.println("Thông tin sản phẩm cần tìm: " + product);
